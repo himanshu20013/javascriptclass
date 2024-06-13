@@ -3,7 +3,7 @@
 <head>
   <title>Calculator</title>
   <style>
-    /* Add some basic styling to the calculator */
+    
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
@@ -91,14 +91,14 @@
   </form>
 
   <script>
-    // Get the input fields and buttons
+    
     const num1Input = document.getElementById('num1');
     const num2Input = document.getElementById('num2');
     const operatorSelect = document.getElementById('operator');
     const equalsButton = document.getElementById('equals');
     const resultDisplay = document.getElementById('result');
 
-    // Define the calculator functions
+    
     function add(x, y) {
       return x + y;
     }
@@ -118,10 +118,10 @@
       return x / y;
     }
 
-    // Add event listener to the equals button
+    
     equalsButton.addEventListener('click', calculate);
 
-    // Define the calculate function
+    
     function calculate() {
       const num1 = parseFloat(num1Input.value);
       const num2 = parseFloat(num2Input.value);
