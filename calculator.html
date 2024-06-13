@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    /* Add some basic styling to the calculator */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      width: 300px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
+    select {
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="button"] {
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #3e8e41;
+    }
+
+    #result {
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <form>
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1" value="0"><br><br>
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2" value="0"><br><br>
+    <label for="operator">Operator:</label>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select><br><br>
+    <input type="button" id="equals" value="="><br><br>
+    <label for="result">Result:</label>
+    <input type="text" id="result" readonly><br><br>
+  </form>
+
+  <script>
+    // Get the input fields and buttons
+    const num1Input = document.getElementById('num1');
+    const num2Input = document.getElementById('num2');
+    const operatorSelect = document.getElementById('operator');
+    const equalsButton = document.getElementById('equals');
+    const resultDisplay = document.getElementById('result');
+
+    // Define the calculator functions
+    function add(x, y) {
+      return x + y;
+    }
+
+    function subtract(x, y) {
+      return x - y;
+    }
+
+    function multiply(x, y) {
+      return x * y;
+    }
+
+    function divide(x, y) {
+      if (y === 0) {
+        return 'Error: Division by zero!';
+      }
+      return x / y;
+    }
+
+    // Add event listener to the equals button
+    equalsButton.addEventListener('click', calculate);
+
+    // Define the calculate function
+    function calculate() {
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+      const operator = operatorSelect.value;
+
+      let result;
+      switch (operator) {
+        case '+':
+          result = add(num1, num2);
+          break;
+        case '-':
+          result = subtract(num1, num2);
+          break;
+        case '*':
+          result = multiply(num1, num2);
+          break;
+        case '/':
+          result = divide(num1, num2);
+          break;
+        default:
+          result = 'Error: Invalid operator!';
+      }
+
+      resultDisplay.value = result;
+    }
+  </script>
+</body>
+</html>
